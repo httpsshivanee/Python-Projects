@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; background-color: #f9f9f9; }
+        h2 { color: #333; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #e2e2e2; margin: 5px 0; padding: 10px; border-radius: 5px; }
+        .total { font-weight: bold; font-size: 1.2em; margin-top: 20px; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    {% if item %}
+    <h2>You ordered:</h2>
+    <ul>
+        {% for i in item %}
+        <li>{{ i }} - Rs {{ menu[i] }}</li>
+        {% endfor %}
+    </ul>
+    <p class="total">Total Amount to Pay: ₹{{ price }}</p>
+    {% else %}
+    <h2>Sorry! No valid items selected.</h2>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
